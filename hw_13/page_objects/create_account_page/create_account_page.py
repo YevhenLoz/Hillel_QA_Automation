@@ -20,3 +20,16 @@ class CreateAccount(BasePage):
     def go_back_to_login(self):
         self.click_back_to_login()
         return CreateAccount(self.__driver)
+
+    def click_submit_button(self):
+        return self._click(self.__locators.submit_button)
+
+    def name_required(self):
+        return self._is_visible(self.__locators.validation_name)
+
+    def submit_without_name(self):
+        self.click_submit_button()
+        return CreateAccount(self.__driver)
+
+    def name_field_visible(self):
+        return self._is_visible(self.__locators.input_name())

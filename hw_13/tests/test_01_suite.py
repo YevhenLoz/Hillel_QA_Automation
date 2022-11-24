@@ -90,6 +90,20 @@ def test_back_to_login_page(open_login_link):
     assert create_account_page.login_page_title_visible() is True
 
 
+@pytest.mark.regression
+def test_name_required(open_login_link):
+    login_link = open_login_link
+    create_account_page = login_link.go_to_create_account().submit_without_name()
+    assert create_account_page.name_required() is True
+
+
+@pytest.mark.regression
+def test_name_field_visible(open_login_link):
+    login_link = open_login_link
+    create_account_page = login_link.go_to_create_account()
+    assert create_account_page.name_field_visible() is True
+
+
 # forgot password tests
 @pytest.mark.smoke
 def test_forgot_password_link_present(open_login_link):
@@ -146,4 +160,4 @@ def test_blog_is_opened(open_blog_page):
 def test_blog_is_opened(open_blog_page):
     open_blog = open_blog_page
     open_blog = open_blog.go_to_blog()
-    assert open_blog.side_bar_is_is_visible() is True
+    assert open_blog.side_bar_is_visible() is True

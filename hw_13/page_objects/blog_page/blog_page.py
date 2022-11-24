@@ -26,5 +26,5 @@ class BlogPage(BasePage):
     def post_list_is_visible(self):
         return self._is_visible(self.__locators.post_list)
 
-    def side_bar_is_is_visible(self):
+    def side_bar_is_visible(self):
         return self._is_visible(self.__locators.side_bar)

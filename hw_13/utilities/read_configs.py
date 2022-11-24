@@ -26,3 +26,7 @@ class ReadConfig:
     @staticmethod
     def get_invalid_email():
         return config.get('user_data', 'invalid_email')
+
+    @staticmethod
+    def get_name():
+        return config.get('user_data', 'name')
